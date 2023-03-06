@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
     <header>
-      <a href="" className="logo">Blog MERN</a>
+      <Link to='/' className='logo'>Blog MERN</Link>
       <nav>
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
+        <Link to='/login'>Login</Link>
+        <Link to='/register'>Register</Link>
       </nav>
     </header>
   )
