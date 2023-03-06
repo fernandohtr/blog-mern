@@ -1,6 +1,6 @@
 import './App.css';
-import Post from './Post';
-import Header from './Header';
+import IndexPage from './pages/IndexPage';
+import LoginPage from './pages/LoginPage';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
 
@@ -8,12 +8,8 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
-        <Route index element={
-          <Post />
-        } />
-        <Route path={'/login'} element={
-          <>login</>
-        } />
+        <Route index element={<IndexPage />} />
+        <Route path={'/login'} element={<LoginPage />} />
       </Route>
     </Routes>
   );
