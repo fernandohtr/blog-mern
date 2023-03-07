@@ -1,8 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
-app.post('/test', (request, response) => {
-  response.json('ok')
-})
+app.use(cors());
 
-app.listen(4000)
+app.post('/register', (request, response) => {
+  response.json('ok');
+});
+
+app.listen(4000);
