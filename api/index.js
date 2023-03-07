@@ -3,9 +3,11 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 
 app.post('/register', (request, response) => {
-  response.json('ok');
+  const {username, password} = request.body;
+  response.json({requestData: {username, password}});
 });
 
 app.listen(4000);
