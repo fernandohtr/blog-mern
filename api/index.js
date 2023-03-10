@@ -18,8 +18,11 @@ mongoose.connect(url)
 
 app.post('/register', async (request, response) => {
   const {username, password} = request.body;
-  const userData = await User.create({username,password});
-  response.json(userData);
+  try {
+    const userData = await User.create({username,password});
+  } catch(err) {
+    response.status(409).json(err);
+  }
 });
 
 app.listen(4000, () => {
