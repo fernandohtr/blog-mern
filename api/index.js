@@ -9,7 +9,6 @@ const app = express();
 const User = require('./models/User');
 
 const salt = bcrypt.genSaltSync(10);
-const secret = '%2A1kQAd94nww@#Wqdj6ZNvWcn0SBDs@';
 
 require('dotenv').config()
 
@@ -42,7 +41,7 @@ app.post('/login', async (request, response) => {
   const userData = await User.findOne({username})
   const passwordOk = bcrypt.compareSync(password, userData.password)
   if (passwordOk) {
-    jwt.sign({username, id: userData._id}, secret, {}, (err, token) => {
+    jwt.sign({username, id: userData._id}, process.env.JWT_SECRET, {}, (err, token) => {
       if (err) throw err;
       response.cookie('token', token).json('ok');
     });
