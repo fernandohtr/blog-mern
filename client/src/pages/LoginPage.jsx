@@ -8,7 +8,7 @@ function LoginPage() {
 
   async function login(event) {
     event.preventDefault();
-    const response = await fetch('http://localhost:4000/login', {
+    const response = await fetch(`${process.env.API_HOST}/login`, {
       method: 'POST',
       body: JSON.stringify({username, password}),
       headers: {'Content-type': 'application/json'},

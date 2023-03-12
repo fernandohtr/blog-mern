@@ -6,7 +6,7 @@ function RegisterPage() {
 
   async function register(event) {
     event.preventDefault()
-    const response = await fetch('http://localhost:4000/register', {
+    const response = await fetch(`${process.env.API_HOST}/register`, {
       method: 'POST',
       body: JSON.stringify({username, password}),
       headers: {'Content-type': 'application/json'}
